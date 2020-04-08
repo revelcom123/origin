@@ -2,7 +2,10 @@ package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Vector;
 
 public class MemberDAO {
 	//드라이버 클래스 로드
@@ -28,6 +31,26 @@ public class MemberDAO {
 		return con;
 	}
 	//데이터베이스 요청 작업
-	
+	public Vector<MemberVO> getList (){
+		Vector<MemberVO> vecLIST=new Vector<MemberVO>();
+		
+		String sql = "select * from memberTBL";
+		try(Connection con = getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()) {
+			
+			while(rs.next()) {
+				MemberVO vo = new MemberVO();
+				vo.setNo(rs.getInt(1));
+				vo.setName(rs.getString(2));
+				vo.setAge(rs.getInt(3));
+				vo.setGemder(rs.getString(4));
+				vecLIST.add(vo);
+			}
+			
+		} catch (Exception e) {
+			
+		}
+	}
 
 }
