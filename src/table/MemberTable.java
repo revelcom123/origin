@@ -240,6 +240,9 @@ public class MemberTable extends JFrame implements ActionListener{
 		}else if(e.getActionCommand().equals("수정")) {
 			
 		}
+	}else if(e.getActionComand().equals("수정")) {
+		system.out.println("원격저장소 저장");
+
 		
 	}
 
