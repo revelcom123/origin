@@ -11,12 +11,21 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 public class MemberVO {
-	//memberTbl 내용 담기
+	//memberTBL 내용 담기
 	private int no;
 	private String name;
-	private int age ;
-	private String gemder;
-
+	private int age;
+	private String gender;
 }
+
+
+
+
+
+
+
+
+
+
+

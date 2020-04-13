@@ -48,7 +48,7 @@ public class JTabletest1 extends JFrame implements ActionListener{
 		
 		JButton btnNewButton = new JButton("출력");
 		contentPane.add(btnNewButton, BorderLayout.SOUTH);
-		
+	}
 		@Override
 		public void actionPerformed(ActionEvent e) {
 //			 1. 모델 가져오기
@@ -60,8 +60,8 @@ public class JTabletest1 extends JFrame implements ActionListener{
 							System.out.println(model.getValueAt(i, j)+"t");
 						}
 						System.out.println();
-		}
-	}
+					
+					}
 });
 	
 	
