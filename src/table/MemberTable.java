@@ -238,6 +238,9 @@ public class MemberTable extends JFrame implements ActionListener{
 			Object[] rowData = {vo.getNo(),vo.getName(),vo.getAge(),vo.getGender()};
 			model1.addRow(rowData);
 		}
+	}else if(e.getActionComand().equals("수정")) {
+		system.out.println("원격저장소 저장");
+
 		
 	}
 
