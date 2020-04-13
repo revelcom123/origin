@@ -237,6 +237,8 @@ public class MemberTable extends JFrame implements ActionListener{
 			MemberVO vo = dao.getRow(no);
 			Object[] rowData = {vo.getNo(),vo.getName(),vo.getAge(),vo.getGender()};
 			model1.addRow(rowData);
+		}else if(e.getActionCommand().equals("수정")) {
+			
 		}
 		
 	}
