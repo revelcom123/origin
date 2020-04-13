@@ -239,9 +239,9 @@ public class MemberTable extends JFrame implements ActionListener{
 			model1.addRow(rowData);
 		}
 	}else if(e.getActionComand().equals("수정")) {
-		system.out.println("원격저장소 저장");
+		system.out.println("원격저장소 저장소 추가");
 
-		
+	}
 	}
 
 }
