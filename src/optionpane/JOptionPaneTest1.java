@@ -65,7 +65,7 @@ public class JOptionPaneTest1 extends JFrame implements ActionListener{
 		JButton btn = (JButton) e.getSource();
 		if(btn==btnConfirm) { 
 			//JOptionPane.showConfirmDialog(getParent(), "대화상자 만들기");
-			JOptionPane.showConfirmDialog(getParent(), "대화상자 만들기","대화상자",JOptionPane.CLOSED_OPTION,JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showConfirmDialog(getParent(),"변경 내용을","대화상자",JOptionPane.CLOSED_OPTION,JOptionPane.INFORMATION_MESSAGE);
 		}else if(btn==btnMsg) {
 			JOptionPane.showMessageDialog(this, "정말 삭제하시겠습니까?", "삭제", JOptionPane.WARNING_MESSAGE, null);
 		}else if(btn==btnInput) {

@@ -35,7 +35,7 @@ public class MemberTable extends JFrame implements ActionListener{
 	private JTable table;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txtDel;
 	private JTable table_1;
 	
 	private MemberDAO dao;
@@ -164,9 +164,9 @@ public class MemberTable extends JFrame implements ActionListener{
 		lblNewLabel_7.setFont(new Font("나눔고딕 ExtraBold", Font.BOLD, 18));
 		panel_3.add(lblNewLabel_7);
 		
-		textField_3 = new JTextField();
-		panel_3.add(textField_3);
-		textField_3.setColumns(10);
+		txtDel = new JTextField();
+		panel_3.add(txtDel);
+		txtDel.setColumns(10);
 		
 		JButton btnNewButton_2 = new JButton("삭제");
 		panel_3.add(btnNewButton_2);
@@ -185,6 +185,8 @@ public class MemberTable extends JFrame implements ActionListener{
 		
 		//회원등록 화면의 성별
 		txtGender.addActionListener(this);
+		//회원삭제
+		btnNewButton_2.addActionListener(this);
 	}
 	
 	public DefaultTableModel getModel() {
@@ -237,22 +239,22 @@ public class MemberTable extends JFrame implements ActionListener{
 			MemberVO vo = dao.getRow(no);
 			Object[] rowData = {vo.getNo(),vo.getName(),vo.getAge(),vo.getGender()};
 			model1.addRow(rowData);
-		}else if(e.getActionCommand().equals("수정")) {
-			
+		}else if(e.getActionCommand().equals("삭제")) {
+			//사용자가 입력한 번호 가져오기
+			int no = Integer.parseInt(txtDel.getText());
+			//해당하는 회원 삭제해주기
+			int result = dao.remove(no);
+			if(result>0) { //성공
+				JOptionPane.showMessageDialog(this, "삭제성공");
+				//모델이 가지고 있었던 데이터 초기화
+				model.setNumRows(0);
+				txtDel.setText("");
+				list();
+			}else { //실패
+				JOptionPane.showMessageDialog(this, "삭제실패");
+			}
 		}
-	}else if(e.getActionComand().equals("수정")) {
-		system.out.println("원격저장소 저장소 추가");
-
-	}
+		System.out.println("원격저장소 추가");
 	}
 
 }
-
-
-
-
-
-
-
-
-
